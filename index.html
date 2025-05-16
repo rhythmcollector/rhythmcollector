@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rook A Music</title>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: 'Outfit', sans-serif;
+      background: #1a1a1a; /* dark grey */
+      color: #ffd6e8; /* pastel pink */
+      line-height: 1.6;
+    }
+    header {
+      background: #2a2a2a;
+      padding: 2rem;
+      text-align: center;
+      border-bottom: 2px solid #444;
+    }
+    header h1 {
+      font-size: 2.5rem;
+      color: #ffc5d9;
+    }
+    .container {
+      padding: 2rem;
+      max-width: 800px;
+      margin: auto;
+    }
+    .track {
+      background: #2a2a2a;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      border-radius: 8px;
+    }
+    .track h2 {
+      font-size: 1.3rem;
+      color: #ffc5d9;
+    }
+    audio {
+      width: 100%;
+      margin-top: 0.5rem;
+    }
+    .socials {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+    .socials a {
+      color: #ff9fbd;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .socials a:hover {
+      text-decoration: underline;
+    }
+    footer {
+      text-align: center;
+      margin-top: 4rem;
+      padding-bottom: 2rem;
+      font-size: 0.8rem;
+      color: #aaa;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Rook A — Instrumental Works</h1>
+    <p>Short, atmospheric, copyright-safe music</p>
+  </header>
+  <div class="container">
+    <div class="track">
+      <h2>Track Title 1</h2>
+      <audio controls>
+        <source src="music/track1.mp3" type="audio/mp3">
+        Your browser does not support the audio element.
+      </audio>
+    </div>
+    <div class="track">
+      <h2>Track Title 2</h2>
+      <audio controls>
+        <source src="music/track2.mp3" type="audio/mp3">
+        Your browser does not support the audio element.
+      </audio>
+    </div>
+    <!-- Add more tracks here -->
+
+    <div class="socials">
+      <a href="https://youtube.com/@yourchannel" target="_blank">YouTube</a>
+      <a href="https://soundcloud.com/yourname" target="_blank">SoundCloud</a>
+      <a href="https://twitter.com/yourhandle" target="_blank">Twitter</a>
+      <a href="mailto:youremail@example.com">Contact</a>
+    </div>
+  </div>
+  <footer>
+    © 2025 Rook A. All rights reserved.
+  </footer>
+</body>
+</html>
