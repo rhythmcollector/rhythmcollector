@@ -1,0 +1,105 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="favicon.png" type="image/png">
+  <title>Rhythm Collector | 리듬수집가</title>
+  <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Kanit', sans-serif;
+      background-color: #ffffff;
+      color: #243646;
+    }
+    header {
+      background-color: #9cbbd8;
+      padding: 1rem;
+      text-align: center;
+      border-bottom: 4px solid #ffffff;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2.2rem;
+      color: #ffffff;
+    }
+    main {
+      padding: 1rem;
+      max-width: 900px;
+      margin: auto;
+    }
+    .video {
+      margin: 2rem 0;
+      text-align: center;
+    }
+    iframe {
+      width: 100%;
+      max-width: 560px;
+      height: 315px;
+      border: none;
+      border-radius: 10px;
+      box-shadow: 0 4px 16px rgba(156, 187, 216, 0.6);
+    }
+    footer {
+      text-align: center;
+      padding: 2rem 1rem 1rem 1rem;
+      font-size: 0.9rem;
+      background-color: #9cbbd8;
+      color: #ffffff;
+    }
+    @media (max-width: 600px) {
+      iframe {
+        height: 200px;
+      }
+    }
+  </style>
+  <script>
+    document.addEventListener('DOMContentLoaded', async () => {
+      const videoLinks = [
+        // Paste only the YouTube links below
+        "https://youtube.com/shorts/H_CT_od_B3I?si=sskVqw_I8eYxoep7",
+        "https://youtube.com/shorts/H8iCkCRu2GA?si=81uICtcbnOmXSbFa",
+	"https://youtube.com/shorts/5pnX6MYbg_w?si=Od9aChxL0d2Md82b",
+	"https://youtube.com/shorts/gD5NmvCoev0?feature=share"
+      ];
+
+      const container = document.getElementById('video-container');
+
+      for (const url of videoLinks) {
+        const videoId = url.includes("shorts")
+          ? url.split("/shorts/")[1].split("?")[0]
+          : new URL(url).searchParams.get("v");
+
+        const apiUrl = `https://noembed.com/embed?url=https://www.youtube.com/watch?v=${videoId}`;
+        const response = await fetch(apiUrl);
+        const data = await response.json();
+
+        const div = document.createElement('div');
+        div.className = 'video';
+        div.innerHTML = `
+          <h2 style="color:#243646;">${data.title}</h2>
+          <iframe src="https://www.youtube.com/embed/${videoId}" allowfullscreen></iframe>
+        `;
+        container.appendChild(div);
+      }
+    });
+  </script>
+</head>
+<body>
+  <header>
+    <h1>🎵 Rhythm Collector | 리듬수집가 🎵</h1>
+  </header>
+  <main>
+    <p style="text-align:center; color:#243646;">좋아하는 장르의 음악을 커미션 하여 올리고 있습니다. 상업적 이용 허락을 받은 음악은 유튜브 채널 영상으로 수익화 할 수 있습니다.
+비상업적 이용의 노래 커미션의 경우에는 해당 영상 수익화 없이 올립니다. (현재 채널 수익화 조건이 안됩니다)
+제목은 제가 마음대로 짓고 있으며 원작자의 의도와 상관 없습니다.
+앨범아트/썸네일도 상업적 이용 허락 조건으로 커미션 하여 사용하고 있습니다, 이 또한 마찬가지로 원작자의 의도와 상관 없습니다.</p>
+    <div id="video-container"></div>
+  </main>
+  <footer>
+    &copy; 2025 Rhythm Collector | 리듬수집가
+  </footer>
+</body>
+</html>
